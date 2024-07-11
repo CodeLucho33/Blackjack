@@ -77,6 +77,7 @@ if (sum <= 20) {
 
 let firstCard = 10
 let secondCard = 7
+let cards =[firstCard,secondCard]
 let sum = firstCard + secondCard + 4
 let hasBlackJack = false
 
@@ -117,8 +118,13 @@ function startGame(){
     renderGame()
 }
 function renderGame(){
-    // 3. Render the cars on the page using this format -> "Cards: 10 4"
-    cardsEl.textContent = `Cards:  ${firstCard},${secondCard}`
+ // 3. Render the cars on the page using this format -> "Cards: 10 4"
+    cardsEl.textContent =  `Cards:  `//${cards[0]},${cards[1]}
+     // Create a for loop that renders out all the cards instead of just two
+     for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " "
+    }
+   
     // 3. Render the sum on the page using this format -> "Sum: 14"
     sumEl.textContent = "Sum:" + sum
 
@@ -175,6 +181,123 @@ function newCard(){
     let card = 7
     // 2. Add the new card to the sum variable
     sum += card
+    cards.push(card)
     // 3. Call startGame()
     startGame()
 }
+
+/**
+ * ARRAYS
+ * // Arrays - ordered lists of items
+
+let featuredPosts = [
+    "Check out my Netflix clone",
+    "Here's the code for my project",
+    "I've just relaunched my portfolio"
+]
+
+// Create an array that lists your i.e. experience, education, licenses, skills or similar
+// The items of the array should be strings
+
+let featureExperience =["engenering", 
+"Turism", 
+"Carpentry",
+ "Filshopy"
+ ]
+
+ // 0 indexed
+let featuredPosts = [
+    "Check out my Netflix clone",        // 0 
+    "Here's the code for my project",    // 1
+    "I've just relaunched my portfolio"  // 2
+]
+
+console.log( featuredPosts.length )=3
+
+// Array - ordered list of items - coposite / complex data type
+
+// Create an array that describes yourself. Use the three primitive data types you've learned
+// It should contain your name (string), your age (number), and whether you like pizza (boolean)
+
+let myIntroduce =["luis", 28 , true]
+
+
+let cards = [7, 4]
+cards.push(6)
+//console.log(cards)
+
+// Push the newMessage to the messages array, and then log out the array
+
+let messages = [
+    "Hey, how's it going?",        
+    "I'm great, thank you! How about you?",
+    "All good. Been working on my portfolio lately."
+]
+
+let newMessage = "Same here!"
+messages.push(newMessage)
+console.log(messages)
+
+// How can you remove the last item in an array? Try to google it!
+messages.pop(messages.length-1)
+console.log(messages)
+
+// Count to ten!
+
+// We need to specify...
+
+// Where should we START counting?
+// Where is the FINISH line?
+// What's the STEP SIZE we should use?
+
+//    START           FINISH       STEP SIZE
+for ( let count = 0;  count < 100;  count += 10 )  {
+    
+    console.log(count)
+
+}
+
+
+
+// for (let i = 0; i < 6; i += 1) {
+//     console.log(i)
+// }
+
+// Create a for loop that counts from 10 to 100 in steps of 10
+// Use console.log to log out the numbers
+
+for (let i = 10; i < 101; i += 10) {
+    console.log(i)
+}
+
+let messages = [
+    "Hey, how's it going?",        
+    "I'm great, thank you! How about you?",
+    "All good. Been working on my portfolio lately.",
+    "Same here!",
+    "Great to hear",
+    "🙌"
+]
+
+// DRY - Don't repeat yourself
+// console.log(messages[0])
+// console.log(messages[1])
+// console.log(messages[2])
+// console.log(messages[3])
+
+for (let i = 0; i < messages.length; i += 1) {
+    console.log(messages[i])
+}
+
+
+ARRAY AT DOM
+let sentence = ["Hello", "my", "name", "is", "Per"] 
+let greetingEl = document.getElementById("greeting-el")
+
+// How do you keep the spaces between the words if I remve them from the array?
+
+for (let i = 0; i < sentence.length; i++) {
+    greetingEl.textContent += sentence[i] + " "
+}
+
+ */
