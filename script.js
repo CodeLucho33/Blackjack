@@ -96,6 +96,44 @@ let message = ""
 
 // 2. Flip its value to false in the appropriate code block 
 // 2. Reassign the message variable to the string we're logging out
+
+// 2. Create a startGame() function. Move the conditional
+// below (line 11-20) inside the body of the function.
+
+// 1. Store the message-el paragraph in a variable called messageEl
+
+let messageEl = document.getElementById('message-el')
+
+
+// 2. Store the sum paragraph in a variable called sumEl
+let sumEl = document.getElementById('sum-el');
+// 2. Store the cards paragraph in a variable called cardsEl
+let cardsEl = document.getElementById('cards-el')
+
+// ANOTHER WAY MORE DINAMIC : se puede tomar por clases, ids o selectores  document.querySelector("#sum-el")
+function startGame(){
+    // 3. Render the cars on the page using this format -> "Cards: 10 4"
+    cardsEl.textContent = `Cards:  ${firstCard},${secondCard}`
+    // 3. Render the sum on the page using this format -> "Sum: 14"
+    sumEl.textContent = "Sum:" + sum
+
+
+    if (sum <= 20) {
+        message = "Do you want to draw a new card? 🙂"
+    
+    } else if (sum === 21) {
+        message = "Wohoo! You've got Blackjack! 🥳"
+        hasBlackJack = true
+    
+    } else {
+        message = "You're out of the game! 😭"
+        isAlive = false
+    }
+    // CASH OUT
+    
+   messageEl.textContent= message
+
+}
 if (sum <= 20) {
     message = "Do you want to draw a new card? 🙂"
 
