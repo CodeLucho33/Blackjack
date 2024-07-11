@@ -75,10 +75,10 @@ if (sum <= 20) {
 
 */
 
-let firstCard = 10
-let secondCard = 7
+let firstCard = getRamdomCard()
+let secondCard = getRamdomCard()
 let cards =[firstCard,secondCard]
-let sum = firstCard + secondCard + 4
+let sum = firstCard + secondCard 
 let hasBlackJack = false
 
 // 1. Create a variable called isAlive and assign it to true
@@ -105,7 +105,9 @@ let message = ""
 
 let messageEl = document.getElementById('message-el')
 
-
+function getRamdomCard(){
+    return Math.floor( Math.random()*13 ) + 1 // 1-13
+}
 // 2. Store the sum paragraph in a variable called sumEl
 let sumEl = document.getElementById('sum-el');
 // 2. Store the cards paragraph in a variable called cardsEl
@@ -114,6 +116,7 @@ let cardsEl = document.getElementById('cards-el')
 // ANOTHER WAY MORE DINAMIC : se puede tomar por clases, ids o selectores  document.querySelector("#sum-el")
 
 // Create a new function called startGame() that calls renderGame()
+
 function startGame(){
     renderGame()
 }
@@ -178,7 +181,7 @@ console.log(3 <= 2)   //false
 function newCard(){
     console.log("Drawing a new card from the deck!")
     // 1. Create a card variable, and hard code its value to a number (2-11)
-    let card = 7
+    let card = getRamdomCard()
     // 2. Add the new card to the sum variable
     sum += card
     cards.push(card)
@@ -186,6 +189,26 @@ function newCard(){
     startGame()
 }
 
+/**ASIDE MATH RAMDOM
+ * 
+ * let randomNumber = Math.random()
+
+console.log(randomNumber)
+
+
+/* 
+// Try to modify the expression so that we get a range from 1 to 6
+let randomNumber = Math.floor( Math.random() * 6 +1 )
+
+console.log(randomNumber)
+
+
+What does Math.random() do?
+
+Your answer: it generates a random number between 0 and 1 (not inclusive of 1)
+
+*/
+ 
 /**
  * ARRAYS
  * // Arrays - ordered lists of items
@@ -299,5 +322,18 @@ let greetingEl = document.getElementById("greeting-el")
 for (let i = 0; i < sentence.length; i++) {
     greetingEl.textContent += sentence[i] + " "
 }
+
+
+// Write a function that returns the total race time
+// Call/invoke the function and store the returned value in a new variable
+// Finally, log the variable out
+
+function getTotalRaceTime() {
+    return player1Time + player2Time
+}
+
+let totalTime = getTotalRaceTime()
+
+console.log(totalTime)
 
  */
