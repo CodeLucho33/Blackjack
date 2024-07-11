@@ -9,9 +9,9 @@
 //if (sum< 21){
 //console.log('Do you want to draw a new card?')
 //} else if (sum === 21){
- //   console.log("Wohoo! You'got BLACKJACK")
+//   console.log("Wohoo! You'got BLACKJACK")
 //} else if (sum>21){
-  //  console.log("You're out of the game!")
+//  console.log("You're out of the game!")
 //}
 
 /*
@@ -50,5 +50,78 @@ if (age < 100) {
 } else {
     console.log("Not elegible, you have already gotten one")
 }
+ 
+THE IF...ELSE STATMENR FOR OUR GAME
+
+let firstCard = 10
+let secondCard = 7
+let sum = firstCard + secondCard + 4
+
+// Write the conditional according to these rules:
+
+// if less than or equal to 20 -> "Do you want to draw a new card? 🙂"
+// else if exactly 21 -> "Wohoo! You've got Blackjack! 🥳"
+// else -> "You're out of the game! 😭"
+
+
+if (sum <= 20) {
+    console.log("Do you want to draw a new card? 🙂")
+} else if (sum === 21) {
+    console.log("Wohoo! You've got Blackjack! 🥳")
+} else {
+    console.log("You're out of the game! 😭")
+}
+
 
 */
+
+let firstCard = 10
+let secondCard = 7
+let sum = firstCard + secondCard + 4
+let hasBlackJack = false
+
+// 1. Create a variable called isAlive and assign it to true
+let isAlive = true;
+// Write the conditional according to these rules:
+// 1. Declare a variable called message and assign its value to an empty string
+let message = ""
+
+
+
+
+// if less than or equal to 20 -> "Do you want to draw a new card? 🙂"
+// else if exactly 21 -> "Wohoo! You've got Blackjack! 🥳"
+// else -> "You're out of the game! 😭"
+// JavaScript No recueda las salidas de consola
+
+// 2. Flip its value to false in the appropriate code block 
+// 2. Reassign the message variable to the string we're logging out
+if (sum <= 20) {
+    message = "Do you want to draw a new card? 🙂"
+
+} else if (sum === 21) {
+    message = "Wohoo! You've got Blackjack! 🥳"
+    hasBlackJack = true
+
+} else {
+    message = "You're out of the game! 😭"
+    isAlive = false
+}
+// CASH OUT
+
+console.log(isAlive)
+
+
+/**
+ * console.log(4 === 3)  // false      
+console.log(5 > 2)    // true
+console.log(12 > 12)  // false
+console.log(3 < 0)    //false
+console.log(3 >= 3)   // true
+console.log(11 <= 11) //true
+console.log(3 <= 2)   //false
+ * 
+ * 
+ * 
+ * 
+ */
