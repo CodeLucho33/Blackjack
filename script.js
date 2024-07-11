@@ -111,7 +111,12 @@ let sumEl = document.getElementById('sum-el');
 let cardsEl = document.getElementById('cards-el')
 
 // ANOTHER WAY MORE DINAMIC : se puede tomar por clases, ids o selectores  document.querySelector("#sum-el")
+
+// Create a new function called startGame() that calls renderGame()
 function startGame(){
+    renderGame()
+}
+function renderGame(){
     // 3. Render the cars on the page using this format -> "Cards: 10 4"
     cardsEl.textContent = `Cards:  ${firstCard},${secondCard}`
     // 3. Render the sum on the page using this format -> "Sum: 14"
@@ -163,3 +168,13 @@ console.log(3 <= 2)   //false
  * 
  * 
  */
+
+function newCard(){
+    console.log("Drawing a new card from the deck!")
+    // 1. Create a card variable, and hard code its value to a number (2-11)
+    let card = 7
+    // 2. Add the new card to the sum variable
+    sum += card
+    // 3. Call startGame()
+    startGame()
+}
