@@ -77,12 +77,12 @@ if (sum <= 20) {
 
 let firstCard = getRamdomCard()
 let secondCard = getRamdomCard()
-let cards =[firstCard,secondCard]
-let sum = firstCard + secondCard 
+let cards = [firstCard, secondCard]
+let sum = firstCard + secondCard
 let hasBlackJack = false
 
 // 1. Create a variable called isAlive and assign it to true
-let isAlive = true;
+let isAlive = false;
 // Write the conditional according to these rules:
 // 1. Declare a variable called message and assign its value to an empty string
 let message = ""
@@ -104,9 +104,30 @@ let message = ""
 // 1. Store the message-el paragraph in a variable called messageEl
 
 let messageEl = document.getElementById('message-el')
+// 2. Create the player object. Give it two keys, name and chips, and set their values
+let player = {
+    name: "Per",
+    chips: 200
+}
 
-function getRamdomCard(){
-    return Math.floor( Math.random()*13 ) + 1 // 1-13
+// 3. Grab ahold of the player-el paragraph and store it in a variable called playerEl
+let playerEl = document.getElementById("player-el")
+
+// 4. Render the player's name and chips in playerEl
+playerEl.textContent = player.name + ": $" + player.chips
+
+
+function getRamdomCard() {
+    // if 1     -> return 11
+    // if 11-13 -> return 10
+    let randomNumer = Math.floor(Math.random() * 13) + 1
+    if (randomNumer > 10) {
+        return 10
+    } else if (randomNumer === 1) {
+        return 11
+    } else {
+        return randomNumer
+    } // 1-13
 }
 // 2. Store the sum paragraph in a variable called sumEl
 let sumEl = document.getElementById('sum-el');
@@ -117,35 +138,43 @@ let cardsEl = document.getElementById('cards-el')
 
 // Create a new function called startGame() that calls renderGame()
 
-function startGame(){
+function startGame() {
+    isAlive = true
+    let firstCard = getRandomCard()
+    let secondCard = getRandomCard()
+    cards = [firstCard, secondCard]
+    sum = firstCard + secondCard
+    // Generate two random numbes
+    // Re-assign the cards and sum variables so that the game can start
+    renderGame()
     renderGame()
 }
-function renderGame(){
- // 3. Render the cars on the page using this format -> "Cards: 10 4"
-    cardsEl.textContent =  `Cards:  `//${cards[0]},${cards[1]}
-     // Create a for loop that renders out all the cards instead of just two
-     for (let i = 0; i < cards.length; i++) {
+function renderGame() {
+    // 3. Render the cars on the page using this format -> "Cards: 10 4"
+    cardsEl.textContent = `Cards:  `//${cards[0]},${cards[1]}
+    // Create a for loop that renders out all the cards instead of just two
+    for (let i = 0; i < cards.length; i++) {
         cardsEl.textContent += cards[i] + " "
     }
-   
+
     // 3. Render the sum on the page using this format -> "Sum: 14"
     sumEl.textContent = "Sum:" + sum
 
 
     if (sum <= 20) {
         message = "Do you want to draw a new card? 🙂"
-    
+
     } else if (sum === 21) {
         message = "Wohoo! You've got Blackjack! 🥳"
         hasBlackJack = true
-    
+
     } else {
         message = "You're out of the game! 😭"
         isAlive = false
     }
     // CASH OUT
-    
-   messageEl.textContent= message
+
+    messageEl.textContent = message
 
 }
 if (sum <= 20) {
@@ -178,17 +207,15 @@ console.log(3 <= 2)   //false
  * 
  */
 
-function newCard(){
-    console.log("Drawing a new card from the deck!")
-    // 1. Create a card variable, and hard code its value to a number (2-11)
-    let card = getRamdomCard()
-    // 2. Add the new card to the sum variable
-    sum += card
-    cards.push(card)
-    // 3. Call startGame()
-    startGame()
+function newCard() {
+    // Only allow the player to get a new card if she IS alive and does NOT have Blackjack
+    if (isAlive === true && hasBlackJack === false) {
+        let card = getRandomCard()
+        sum += card
+        cards.push(card)
+        renderGame()
+    }
 }
-
 /**ASIDE MATH RAMDOM
  * 
  * let randomNumber = Math.random()
@@ -208,7 +235,7 @@ What does Math.random() do?
 Your answer: it generates a random number between 0 and 1 (not inclusive of 1)
 
 */
- 
+
 /**
  * ARRAYS
  * // Arrays - ordered lists of items
@@ -336,4 +363,21 @@ let totalTime = getTotalRaceTime()
 
 console.log(totalTime)
 
+
+// Objects - store data in-depth - composite / complex data type
+// key-value pairs
+
+
+// Create an object that represents an airbnb castle listing.
+// It should contain at least one boolean, one string, one number, and one array
+// Log out at least two of the keys using the dot notation
+
+let castle = {
+    moreThanTwoFlowwer: false,
+    name: 'castleRose',
+    number: 223122,
+    codeBaths: [12,12,45,45]
+}
+
+console.log(castle.name)
  */
